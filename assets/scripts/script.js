@@ -65,22 +65,8 @@ $(document).ready(function(){
     const getLoot = () => {
         numberOfRuns--;     
         testRuns++;
-
         switch(numberOfRuns){
             case -1:
-                console.log(totalGP + " total gp b4");
-                if(totalGP >= 1000000000){
-                    totalGP = (totalGP/1000000000).toFixed(1);
-                    totalGP += "b";
-                }else if(totalGP >= 10000000){
-                    totalGP = (totalGP/1000000).toFixed(1);
-                    totalGP += "m";
-                } else if (totalGP >= 1000 && totalGP < 10000000) {
-                    totalGP = (totalGP/1000).toFixed(1);
-                    totalGP += "k";
-                }              
-
-                $('.gp').text(totalGP);
                 clearInterval(interval);
                 return;          
         }  
@@ -122,10 +108,8 @@ $(document).ready(function(){
     }
 
     const displayPurp = (n,q) => {
-        console.log("!!!!!!!!!!!purp!!!!!!!!!! " + purpNames[n]);
-        console.log(" price before purp" + totalGP);
         totalGP += purpPrice[n];
-        console.log(" price after purp" + totalGP);
+        displayGold();
         if ($(".cards").find(".purp" +n).length !== 0){
             let added = parseInt($(".purp" + n).find(".white").text()) + q;
             $(".purp" + n).find(".white").text(added);
@@ -140,7 +124,7 @@ $(document).ready(function(){
                                 <div class="dropdown-content">
                                 <div class="dropdown-item">
                                     <p>`+purpNames[n]+`</p> 
-                                    <p>Price: `+purpPrice[n]+`</p>                                                             
+                                    <p style="color:green;">Price: `+purpPrice[n]/1000000+`m</p>                                                             
                                 </div>
                                 </div>
                             </div>
@@ -192,8 +176,25 @@ $(document).ready(function(){
     const calculateQuantity= (n) => {
         const quantity = parseInt(currentPoints/divisor[n]);
         totalGP += commonPrice[n] * quantity;
+        displayGold();
         return quantity;
     }
+
+    const displayGold=()=>{
+        let totalGPF;
+        if(totalGP >= 1000000000){
+            totalGPF = (totalGP/1000000000).toFixed(1);
+            totalGPF += "b";
+        }else if(totalGP >= 10000000){
+            totalGPF = (totalGP/1000000).toFixed(1);
+            totalGPF += "m";
+        } else if (totalGP >= 1000 ) {
+            totalGPF = (totalGP/1000).toFixed(1);
+            totalGPF += "k";
+        }              
+
+        $('.gp').text(totalGPF);
+    } 
 
     $("#submit").click(function(event){
         event.preventDefault();

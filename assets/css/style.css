@@ -18,7 +18,7 @@ html{
     background-position:center;
     background-repeat:no-repeat;
     background-image: url("../images/background_body.PNG");
-    background-color: var(--darkbrown);
+    background-color: #2d3133;
 }
 
 img{
@@ -36,7 +36,7 @@ img{
     min-height: 200px;
     margin-left: auto;
     margin-right: auto;
-    background-color: var(--darkbrown);
+    background-color: #2d3133;
 }
 .amount{
     position: absolute;
@@ -55,6 +55,8 @@ img{
 .card-created{
     width: 2.4cm;
     height: 2.5cm;
+    background-color: rgb(24, 26, 27);
+    color: white;
 }
 
 .cards{
@@ -66,6 +68,12 @@ img{
     margin-left: auto;
     margin-right: auto;
 }
+
+#controll .box{
+    border-radius: 13px;
+    border: solid 0.3em var(--lightpurple);   
+}
+
 
 
   
@@ -88,7 +96,7 @@ article{
     flex-wrap: wrap;
     justify-content: space-evenly;    
     height: 300px;
-    background-color: var(--darkbrown);
+    background-color: #2d3133;;
     border-radius: 13px;
     border: solid 0.3em var(--lightpurple);    
 }
@@ -106,9 +114,24 @@ article{
 .dropdown-menu{
     border-radius: 3px;
     border: solid 0.1em var(--lightpurple);      
+    background-color: #2d3133;
+}
+
+.dropdown-content{
+    background-color: rgb(24, 26, 27);
+    box-shadow: rgb(8 8 8 / 10%) 0px 0.5em 1em -0.125em, rgb(8 8 8 / 2%) 0px 0px 0px 1px;
+}
+
+.dropdown-item{
+    color: rgb(185, 179, 170);
 }
 
 .dropdown-menu a{
+    color: white;
+}
+
+.dropdown-item:focus, .dropdown-item:hover{
+    background-color: rgb(24, 26, 27);
     color: white;
 }
 
