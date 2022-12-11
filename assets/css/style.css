@@ -1,0 +1,165 @@
+:root {
+    --white:#eebdc9;
+    --darkbrown:#413642; 
+    --lightpurple:#9a49a3;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;    
+}
+
+html{
+    margin: 0;
+    min-height: 100%;
+    width: 100%; 
+    background-position:center;
+    background-repeat:no-repeat;
+    background-image: url("../images/background_body.PNG");
+    background-color: var(--darkbrown);
+}
+
+img{
+    width: auto;
+    height: 55px;
+
+}
+
+.box{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    min-width: 70%;
+    min-height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--darkbrown);
+}
+.amount{
+    position: absolute;
+    margin-bottom: -60px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.white{
+    position: absolute;
+    margin-bottom: -60px;
+    margin-top: 20px;
+    font-weight: bold;
+    color: white;
+}
+.card-created{
+    width: 2.4cm;
+    height: 2.5cm;
+}
+
+.cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+  
+body{  
+    background-color: initial;
+    min-height: 385px;
+}
+
+article{
+    max-width: 60%;
+    max-height: 40%;
+    margin: auto;
+    margin-top: 10%;
+}
+
+#form{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;    
+    height: 300px;
+    background-color: var(--darkbrown);
+    border-radius: 13px;
+    border: solid 0.3em var(--lightpurple);    
+}
+#controll .box{
+    min-height: 100px;
+}
+
+.runs{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.raid-lvl{
+    width: fit-content;
+}
+.dropdown-menu{
+    border-radius: 3px;
+    border: solid 0.1em var(--lightpurple);      
+}
+
+.dropdown-menu a{
+    color: white;
+}
+
+#loot{
+    visibility: hidden;
+}
+
+.rerun{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.current-run{
+    color: white;
+    font-weight: bold;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.gp{
+    color: green;
+    font-weight: bold;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#box-animated {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 94px;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    animation: gradient 15s ease infinite;
+}
+
+.gradient-border{
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    /* height: 100vh; */
+    animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
