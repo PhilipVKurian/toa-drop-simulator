@@ -9,10 +9,11 @@ $(document).ready(function(){
     let currentPoints = 0;
     let interval;
     let testRuns = 0;
-
+    let totalGP = 0;
     const itemIDCommon = [0 , 560, 566, 444 , 11232, 6332, 1607, 1605, 2357, 3138, 383, 1603, 1601, 389, 6016, 1615, 1391, 5935, 27272, 5296, 5295, 5304, 5300, 1149, 5316, 26390]; 
-    const commonPrice = [1];   
+    const commonPrice = [1 , 168, 198, 299, 1904, 320, 235, 433, 83, 482, 533, 866, 1789, 866,  482, 11500, 8054, 232, 2092, 1709, 36300, 19200, 46500, 58600, 81600, 60200];   
     const itemIDPurp = [27277, 25985, 27226, 27229, 27232, 25975, 26219 ];
+    const purpPrice = [1300000000, 6600000, 27100000, 170700000, 141300000, 6100000, 64200000];
     const purpNames = ["Tumeken's shadow (uncharged)", "Elidinis' ward", "Masori mask", "Masori body", "Masori chaps", "Lightbearer", "Osmumten's fang"];
     const commonNames = ["Coins", "Death rune", "Soul rune", "Gold ore" , "Dragon dart" , "Mahogany logs" , "Sapphire" , "Emerald" , "Gold bar" , "Potato cactus" , "Raw shark" , "Ruby" , "Diamond" , "Raw manta ray" , "Cactus spine" , "Dragonstone" , "Battlestaff", "Coconut milk" , "Lilly of the sands", "Toadflax seed" , "Ranarr seed" , "Torstol seed" ,  "Snapdragon seed" , "Dragon med helm" , "Magic seed" , "Blood essence"];
     const purpLoot= ["assets/images/Tumeken's_shadow_(uncharged).png", "assets/images/Elidinis'_ward.png", "assets/images/Masori_mask.png", "assets/images/Masori_body.png", "assets/images/Masori_chaps.png", "assets/images/Lightbearer.png", "assets/images/Osmumten's_fang.png"];
@@ -48,21 +49,6 @@ $(document).ready(function(){
     $("#loot").css("visibility", "hidden");
     $("#controll").css("visibility", "hidden");
 
-    for(let i = 1; i < itemIDCommon.length; i++){
-        const baseUrl = "https://secure.runescape.com/m=itemdb_oldschool/api/catalogue/detail.json?item=" + itemIDCommon[i];
-        let itemPrice = 1;
-        fetch(baseUrl).then(function(response){
-            if(response.ok){
-                response.json().then(function(data){
-                    commonPrice.push( data);
-                })
-            }else{
-                console("didnt work");
-            }
-        })
-    }    
-    console.log(commonPrice);
-
     const raid = () => {
         if(clicked){
             currentPoints = parseInt(pointsWTP[raidLevelIndex]);
@@ -79,12 +65,28 @@ $(document).ready(function(){
     const getLoot = () => {
         numberOfRuns--;     
         testRuns++;
+
         switch(numberOfRuns){
             case -1:
-                console.log("reached runs");
+                console.log(totalGP + " total gp b4");
+                if(totalGP >= 1000000000){
+                    totalGP = (totalGP/1000000000).toFixed(1);
+                    totalGP += "b";
+                }else if(totalGP >= 10000000){
+                    totalGP = (totalGP/1000000).toFixed(1);
+                    totalGP += "m";
+                } else if (totalGP >= 1000 && totalGP < 10000000) {
+                    totalGP = (totalGP/1000).toFixed(1);
+                    totalGP += "k";
+                }              
+
+                $('.gp').text(totalGP);
                 clearInterval(interval);
                 return;          
         }  
+
+        $('.current-run').text("Current Run: " + testRuns);
+
         let purpNum = parseFloat(((Math.random()* (100.00 - 0.01 +1))+0.01).toFixed(2));
 
         if (purpNum < purpChance){
@@ -120,21 +122,25 @@ $(document).ready(function(){
     }
 
     const displayPurp = (n,q) => {
-        console.log(" purp numba" + n)
+        console.log("!!!!!!!!!!!purp!!!!!!!!!! " + purpNames[n]);
+        console.log(" price before purp" + totalGP);
+        totalGP += purpPrice[n];
+        console.log(" price after purp" + totalGP);
         if ($(".cards").find(".purp" +n).length !== 0){
-            let added = parseInt($(".purp" + n).find(".amount").text()) + q;
-            $(".purp" + n).find(".amount").text(added);
+            let added = parseInt($(".purp" + n).find(".white").text()) + q;
+            $(".purp" + n).find(".white").text(added);
         }else{
             $(".cards").append(
-                `<div class="gradient-border" id="box-animated">
-                    <div class="card card-created purp`+n+` gradient-border">                
+                `<div class="gradient-border purp`+n+`" id="box-animated">
+                    <div class="card card-created gradient-border">                
                         <button class="card-header-icon dropdown is-hoverable" aria-label="more options">
                             <img src="`+ purpLoot[n] +`"></img>
                             <p class="white">`+ q + `</p>
                             <div class="dropdown-menu" id="dropdown-menu4" role="menu">
                                 <div class="dropdown-content">
                                 <div class="dropdown-item">
-                                    <p>`+purpNames[n]+`</p>                                                            
+                                    <p>`+purpNames[n]+`</p> 
+                                    <p>Price: `+purpPrice[n]+`</p>                                                             
                                 </div>
                                 </div>
                             </div>
@@ -159,7 +165,8 @@ $(document).ready(function(){
                         <div class="dropdown-menu" id="dropdown-menu4" role="menu">
                             <div class="dropdown-content">
                             <div class="dropdown-item">
-                                <p>`+commonNames[n] + `</p>                                                            
+                                <p>`+commonNames[n] + `</p> 
+                                <p>Price: `+ commonPrice[n] +`</p>                                                           
                             </div>
                             </div>
                         </div>
@@ -184,6 +191,7 @@ $(document).ready(function(){
 
     const calculateQuantity= (n) => {
         const quantity = parseInt(currentPoints/divisor[n]);
+        totalGP += commonPrice[n] * quantity;
         return quantity;
     }
 
