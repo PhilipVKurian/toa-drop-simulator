@@ -1,18 +1,18 @@
-[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)
 
-#Toa-drop-Sim
+#adwsdaw
 
 ## Description
 
-calculates drops and stuff
+asdawsd
 ## Table Of Contents
-->[Installation](#Installation)
+->[Installation](#Installation)  
 ->[Usage](#Usage)  
 ->[Contribute](#Contribute)  
 ->[Testing](#Testing)  
 ->[License](#License)  
 ->[Contact](#Contact)  
 
-##Installation
+## Installation  
 
-$(data.installation)
+asdawsd
