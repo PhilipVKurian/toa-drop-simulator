@@ -1,10 +1,10 @@
-[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-#adwsdaw
+#adwdas
 
 ## Description
 
-asdawsd
+asdaw
 ## Table Of Contents
 ->[Installation](#Installation)  
 ->[Usage](#Usage)  
@@ -15,4 +15,27 @@ asdawsd
 
 ## Installation  
 
-asdawsd
+adsdawdasda
+  
+## Usage
+
+sdawsd
+
+## Contribute
+
+sdaws
+    
+## Testing
+
+asdaw
+
+## License
+
+the project is covered by:  GNU general Public License v 3.0
+    
+    
+## Contact   
+
+GitHub: https://github.com/asdaw'
+    
+Email: [someone@gmail.com]mailto:someone@gmail.com
