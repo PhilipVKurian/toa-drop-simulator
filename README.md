@@ -1,41 +1,37 @@
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-#adwdas
+#sdawsd
 
 ## Description
 
-asdaw
+sdwddwa
 ## Table Of Contents
-->[Installation](#Installation)  
 ->[Usage](#Usage)  
 ->[Contribute](#Contribute)  
 ->[Testing](#Testing)  
 ->[License](#License)  
 ->[Contact](#Contact)  
 
-## Installation  
-
-adsdawdasda
   
 ## Usage
 
-sdawsd
+sdawsda
 
 ## Contribute
 
-sdaws
+sdawsd
     
 ## Testing
 
-asdaw
+sdawsd
 
 ## License
 
-the project is covered by:  GNU general Public License v 3.0
+the project is covered by:  Apache License 2.0
     
     
 ## Contact   
 
-GitHub: https://github.com/asdaw'
+GitHub: https://github.com/sdaw
     
-Email: [someone@gmail.com]mailto:someone@gmail.com
+Email: philipss@gmail.com
